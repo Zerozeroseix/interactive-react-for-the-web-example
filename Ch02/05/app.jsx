@@ -1,5 +1,5 @@
 (() => {
-	function SizeSelector(props) {
+	function SizeSelector() {
 		function sizeOptions() {
 			const sizes = window.Inventory.allSizes;
 
@@ -20,11 +20,11 @@
 		);
 	}
 
-	function ProductImage(props) {
+	function ProductImage() {
 		return <img src="../../../assets/red.jpg" alt="A red sneaker" />;
 	}
 
-	function ProductCustomizer(props) {
+	function ProductCustomizer() {
 		return (
 			<div className="customizer">
 				<div className="product-image">

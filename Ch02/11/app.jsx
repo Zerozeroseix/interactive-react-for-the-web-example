@@ -64,7 +64,7 @@
 		);
 	}
 
-	function ProductCustomizer(props) {
+	function ProductCustomizer() {
 		const [size, setSize] = React.useState(8);
 		const [sizes, setSizes] = React.useState(window.Inventory.allSizes);
 

@@ -29,7 +29,7 @@
 		);
 	}
 
-	function ProductCustomizer(props) {
+	function ProductCustomizer() {
 		return (
 			<div className="customizer">
 				<div className="product-image">
