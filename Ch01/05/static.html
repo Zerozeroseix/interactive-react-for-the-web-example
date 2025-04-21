@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A Static Page</title>
+    <style type="text/css">
+        body {
+            font-family: Inter, "Helvetica Neue", Helvetica, sans-serif;
+            line-height: 1.3;
+        }
+        
+        h1 {
+            font-size: 1.5rem;
+        }
+        
+        #slot {
+            color: green;
+            font-weight: 600;
+        }
+    </style>
+  </head>
+  <body>
+    <h1>A Basic Page</h1>
+    <p>
+        This is a basic page with a little basic JavaScript, just to show that we have a preview server available.
+    </p>
+    
+    <p id="slot"></p>
+    
+  <script>
+    (() => {
+        document.addEventListener('DOMContentLoaded', () => {
+             document.getElementById('slot').textContent = "JavaScript works here 👍";
+        });
+    })();
+  </script>
+  </body>
+</html>

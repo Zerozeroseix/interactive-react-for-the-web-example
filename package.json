@@ -1,0 +1,41 @@
+{
+	"name": "react-2025",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev:vite": "vite",
+		"dev:vite:container": "vite --host",
+		"build": "vite build",
+		"lint": "eslint .",
+		"preview": "vite preview",
+		"dev:frontend": "vite --host 0.0.0.0 --port 3000",
+		"dev:backend": "tsx watch status-api.ts",
+		"dev:container": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\""
+	},
+	"dependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"@hono/node-server": "^1.14.0",
+		"date-and-time": "^3.6.0",
+		"hono": "^4.7.6",
+		"motion": "^12.6.5",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"sequelize": "^6.37.7",
+		"sqlite3": "^5.1.7"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.21.0",
+		"@types/node": "^20.11.17",
+		"@types/react": "^19.0.10",
+		"@types/react-dom": "^19.0.4",
+		"@vitejs/plugin-react": "^4.3.4",
+		"concurrently": "^9.1.2",
+		"eslint": "^9.21.0",
+		"eslint-plugin-react-hooks": "^5.1.0",
+		"eslint-plugin-react-refresh": "^0.4.19",
+		"globals": "^15.15.0",
+		"tsx": "^4.7.1",
+		"vite": "^6.2.4"
+	}
+}

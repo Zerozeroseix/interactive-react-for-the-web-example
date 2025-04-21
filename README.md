@@ -6,34 +6,39 @@ _See the readme file in the main branch for updated instructions and information
 
 ## Instructions
 
-This repository has branches for each of the videos in the course. You can use the branch pop up menu in github to switch to a specific branch and take a look at the course at that stage, or you can add `/tree/BRANCH_NAME` to the URL to go to the branch you want to access.
-
-## Branches
-
-The branches are structured to correspond to the videos in the course. The naming convention is `CHAPTER#_MOVIE#`. As an example, the branch named `02_03` corresponds to the second chapter and the third video in that chapter. 
-Some branches will have a beginning and an end state. These are marked with the letters `b` for "beginning" and `e` for "end". The `b` branch contains the code as it is at the beginning of the movie. The `e` branch contains the code as it is at the end of the movie. The `main` branch holds the final state of the code when in the course.
-
-When switching from one exercise files branch to the next after making changes to the files, you may get a message like this:
-
-    error: Your local changes to the following files would be overwritten by checkout:        [files]
-    Please commit your changes or stash them before you switch branches.
-    Aborting
-
-To resolve this issue:
-	
-    Add changes to git using this command: git add .
-	Commit changes using this command: git commit -m "some message"
+This repository has folders for each of the chapters and videos in the course where exercise files are needed.  The structure is `CHAPTER#.MOVIE#`, with an equivalent `CHAPTER#.MOVIE#-end` for the files as they are at the end of that movie.
 
 ## Installing
 
-1. To use these exercise files, you must have the following installed:
-	- [list of requirements for course]
-2. Clone this repository into your local machine using the terminal (Mac), CMD (Windows), or a GUI tool like SourceTree.
-3. [Course-specific instructions]
+This course is delivered using GitHub Codespaces, so no installation is required.  Fork the repository to your own GitHub account, then click the Code button, switch to the Codespaces tab and click the "Create Codespace on main" button.
 
+![Screenshot of the Create Codespace on main button](assets/readme/create-codespace.png)
 
-[0]: # (Replace these placeholder URLs with actual course URLs)
+### Offline installation
+
+While it is easy, you don't have to use Codespaces to use these files.  If you download the files from GitHub, you can start a local Dev Container in Visual Studio Code.  [The VSC documentation on Dev Containers](https://code.visualstudio.com/docs/devcontainers/tutorial) has all the requirements you'll need to do this.  Once those requirements are installed, you can start the dev container and enjoy.
+
+## Installed Software
+
+This project includes [Vite](https://vite.dev) for processing the React code into JavaScript, and [Hono](https://hono.dev) to running the API that powers one of the chapters.
+
+### Status API
+
+This tiny [Hono](https://hono.dev/) app saves and serves status messages.  It is just enough to support the coursework, and is *not* meant to be used live on the internet.
+
+For example, there is no data validation, no authentication, and no protection against spam.  Feel free to use it as a starting point, but it will take a lot of work to be ready for production.
+
+If used outside a Dev Container, you can install and try it like this:
+
+```
+npm install
+npm run dev
+```
+
+Then you'll be able to see it running in a web browser:
+
+```
+open http://localhost:4000
+```
 
 [lil-course-url]: https://www.linkedin.com/learning/
-[lil-thumbnail-url]: https://
-
