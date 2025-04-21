@@ -1,29 +1,57 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/universal
 {
-  "customizations": {
-    "codespaces": {
-      "openFiles": [
-        "README.md"
-      ]
-    },
-    "vscode": {
-      // Set *default* container specific settings.json values on container create.
-      "settings": {
-        "terminal.integrated.shell.linux": "/bin/bash"
-      },
-      // Add the IDs of extensions you want installed when the container is created.
-      "extensions": [
-        "GitHub.github-vscode-theme",
-        "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint",
-        "ritwickdey.LiveServer",
-        "stylelint.vscode-stylelint"
-        // Additional Extensions Here
-      ]
-    }
-  },
-  // Update welcome text and set terminal prompt to '$ '
-  "onCreateCommand": "echo PS1='\"$ \"' >> ~/.bashrc",
-  // Pull all branches
-  "postAttachCommand": "git pull --all"
+	"name": "Default Linux Universal",
+	// Custom Dockerfile so we can have sqlite3
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {
+			"version": "22"
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [3000, 4000],
+
+	"portsAttributes": {
+		"3000": {
+			"label": "React app",
+			"onAutoForward": "openPreview"
+		},
+		"4000": {
+			"label": "Hono app",
+			"onAutoForward": "notify"
+		}
+	},
+
+	"updateContentCommand": "npm install",
+
+	// Pull all branches and run the dev script
+	"postAttachCommand": "git pull --all && npm run dev:container",
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"openFiles": ["README.md"],
+		"vscode": {
+			"extensions": [
+				"GitHub.github-vscode-theme",
+				"biomejs.biome",
+				"ms-vscode.live-server",
+				"alexcvzz.vscode-sqlite"
+			],
+			"settings": {
+				"terminal.integrated.shell.linux": "/bin/bash"
+			}
+		}
+	},
+	// Update welcome text and set terminal prompt to '$ '
+	"onCreateCommand": "echo PS1='\"$ \"' >> ~/.bashrc"
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }
 // DevContainer Reference: https://code.visualstudio.com/docs/remote/devcontainerjson-reference
