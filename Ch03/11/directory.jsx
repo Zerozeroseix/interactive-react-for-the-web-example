@@ -118,10 +118,8 @@ function Filters(props) {
 	);
 }
 
-const initialPeople = [].concat(window.LMDirectory.people);
-
 function Directory() {
-	const [people, setPeople] = useState(initialPeople);
+	const [people, setPeople] = useState(window.LMDirectory.people);
 	const [formState, setFormState] = useState({
 		currentName: "",
 		currentTitle: "",
@@ -135,7 +133,7 @@ function Directory() {
 
 	// search the whole employee list with current filters when the form state changes
 	useEffect(() => {
-		const filteredPeople = initialPeople.filter(
+		const filteredPeople = window.LMDirectory.people.filter(
 			(person) =>
 				(formState.isIntern === false ||
 					(person.intern && formState.isIntern === true)) &&
@@ -166,6 +164,6 @@ function Directory() {
 
 createRoot(document.getElementById("directory-root")).render(
 	<StrictMode>
-		<Directory />,
+		<Directory />
 	</StrictMode>,
 );
