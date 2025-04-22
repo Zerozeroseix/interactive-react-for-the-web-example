@@ -55,7 +55,6 @@
 		const [sizes, setSizes] = React.useState(window.Inventory.allSizes);
 
 		const [color, setColor] = React.useState("red");
-		// This might not either
 		const [colors, setColors] = React.useState(window.Inventory.allColors);
 
 		return (
