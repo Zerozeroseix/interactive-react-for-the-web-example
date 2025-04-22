@@ -34,7 +34,7 @@ function People(props) {
 	);
 }
 
-function Filters(props) {
+function Filters() {
 	return <p>Filters go here</p>;
 }
 

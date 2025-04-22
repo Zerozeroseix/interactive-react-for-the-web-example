@@ -34,7 +34,7 @@ function People(props) {
 	);
 }
 
-function Filters(props) {
+function Filters() {
 	const titles = window.LMDirectory.titles;
 
 	return (

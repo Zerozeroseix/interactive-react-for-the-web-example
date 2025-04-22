@@ -1,11 +1,11 @@
 import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
-function People(props) {
+function People() {
 	return <div className="results">People go here</div>;
 }
 
-function Filters(props) {
+function Filters() {
 	return <p>Filters go here</p>;
 }
 
@@ -14,8 +14,7 @@ function Directory() {
 		<div className="company-directory">
 			<h2>Company Directory</h2>
 			<p>
-				Learn more about each person at Leaf &amp; Mortar in this company
-				directory.
+				Learn more about each person at Leaf & Mortar in this company directory.
 			</p>
 
 			<Filters />
