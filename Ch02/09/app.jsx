@@ -63,14 +63,14 @@
 		const [size, setSize] = React.useState(8);
 		const [sizes, setSizes] = React.useState(window.Inventory.allSizes);
 
+		const [color, setColor] = React.useState("red");
+		const [colors, setColors] = React.useState(window.Inventory.allColors);
+
 		function handleSizeChange(selectedSize) {
 			const availableColors = window.Inventory.bySize[selectedSize];
 
 			setColors(availableColors);
 		}
-
-		const [color, setColor] = React.useState("red");
-		const [colors, setColors] = React.useState(window.Inventory.allColors);
 
 		return (
 			<div className="customizer">

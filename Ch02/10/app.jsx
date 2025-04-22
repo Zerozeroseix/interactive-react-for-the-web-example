@@ -36,6 +36,10 @@
 			));
 		}
 
+		function onColorChange(evt) {
+			props.handleColorChange(evt.target.value);
+		}
+
 		return (
 			<div className="field-group">
 				<label htmlFor="color-options">Color:</label>
@@ -43,6 +47,7 @@
 					defaultValue={props.color}
 					name="colorOptions"
 					id="color-options"
+					onChange={onColorChange}
 				>
 					{colorOptions()}
 				</select>
@@ -63,14 +68,29 @@
 		const [size, setSize] = React.useState(8);
 		const [sizes, setSizes] = React.useState(window.Inventory.allSizes);
 
+		const [color, setColor] = React.useState("red");
+		const [colors, setColors] = React.useState(window.Inventory.allColors);
+
 		function handleSizeChange(selectedSize) {
 			const availableColors = window.Inventory.bySize[selectedSize];
 
 			setColors(availableColors);
+
+			if (availableColors.indexOf(color) === -1) {
+				setColor(availableColors[0]);
+			}
 		}
 
-		const [color, setColor] = React.useState("red");
-		const [colors, setColors] = React.useState(window.Inventory.allColors);
+		function handleColorChange(selectedColor) {
+			const availableSizes = window.Inventory.byColor[selectedColor];
+
+			setSizes(availableSizes);
+			setColor(selectedColor);
+
+			if (availableSizes.indexOf(size) === -1) {
+				setSize(availableSizes[0]);
+			}
+		}
 
 		return (
 			<div className="customizer">
@@ -83,7 +103,11 @@
 						sizes={sizes}
 						handleSizeChange={handleSizeChange}
 					/>
-					<ColorSelector color={color} colors={colors} />
+					<ColorSelector
+						color={color}
+						colors={colors}
+						handleColorChange={handleColorChange}
+					/>
 				</div>
 			</div>
 		);
