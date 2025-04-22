@@ -4,7 +4,7 @@ import { PostForm } from "./PostForm";
 import { StatusMessageList } from "./StatusMessageList";
 import { apiUrl } from "./constants";
 
-function StatusMessageManager(props) {
+function StatusMessageManager() {
 	const messageTypes = {
 		management: "Management",
 		dining: "Dining Services",

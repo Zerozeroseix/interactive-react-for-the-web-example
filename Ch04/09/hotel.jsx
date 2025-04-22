@@ -136,7 +136,7 @@ function StatusMessageList(props) {
 	return <ul id="status-list">{displayedStatuses}</ul>;
 }
 
-function StatusMessageManager(props) {
+function StatusMessageManager() {
 	const messageTypes = {
 		management: "Management",
 		dining: "Dining Services",
