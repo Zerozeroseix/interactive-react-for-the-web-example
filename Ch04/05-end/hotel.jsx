@@ -73,12 +73,23 @@ function StatusMessageList(props) {
 
 	useEffect(() => {
 		// Fetch the status messages from the API
-		fetch(`${CONFIG.apiUrl}/messages?delay=5000`)
+		const abortController = new AbortController();
+
+		fetch(`${CONFIG.apiUrl}/messages?delay=5000`, {
+			signal: abortController.signal,
+		})
 			.then((response) => response.json())
 			.then((data) => setStatuses(data))
-			.catch((error) =>
-				console.error("Error fetching status messages:", error),
-			);
+			.catch((error) => {
+				if (error.name !== "AbortError") {
+					// AbortErrors are expected during cleanup
+					console.error("Error fetching status messages:", error);
+				}
+			});
+
+		return () => {
+			abortController.abort();
+		};
 	}, []);
 
 	let displayedStatuses;
