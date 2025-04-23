@@ -3,6 +3,14 @@ import { createRoot } from "react-dom/client";
 import date from "date-and-time";
 
 const CONFIG = {
+	messageTypes: {
+		management: "Management",
+		dining: "Dining Services",
+		ops: "Operations",
+		plumbing: "Plumbing",
+		pool: "Pool",
+	},
+
 	apiUrl: "/api",
 };
 
@@ -15,14 +23,12 @@ function Loading({ what = "messages" }) {
 }
 
 function PostForm(props) {
-	const typeOptions = Object.keys(props.messageTypes).map(function (key) {
-		if (Object.hasOwn(props.messageTypes, key)) {
-			return (
-				<option key={key} value={key}>
-					{props.messageTypes[key]}
-				</option>
-			);
-		}
+	const typeOptions = Object.keys(CONFIG.messageTypes).map(function (key) {
+		return (
+			<option key={key} value={key}>
+				{CONFIG.messageTypes[key]}
+			</option>
+		);
 	});
 
 	// so we don't have to type this over and over
@@ -126,7 +132,7 @@ function StatusMessageList(props) {
 				<li key={status.id} className={status.type}>
 					<StatusMessage
 						msg={status.msg}
-						type={props.messageTypes[status.type]}
+						type={CONFIG.messageTypes[status.type]}
 						time={status.time}
 					/>
 				</li>
@@ -140,20 +146,12 @@ function StatusMessageList(props) {
 }
 
 function StatusMessageManager() {
-	const messageTypes = {
-		management: "Management",
-		dining: "Dining Services",
-		ops: "Operations",
-		plumbing: "Plumbing",
-		pool: "Pool",
-	};
-
 	return (
 		<Fragment>
 			<div id="post-status">
-				<PostForm messageTypes={messageTypes} />
+				<PostForm />
 			</div>
-			<StatusMessageList messageTypes={messageTypes} />
+			<StatusMessageList />
 		</Fragment>
 	);
 }

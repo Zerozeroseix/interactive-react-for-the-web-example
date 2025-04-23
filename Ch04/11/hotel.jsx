@@ -5,14 +5,6 @@ import { StatusMessageList } from "./StatusMessageList";
 import { apiUrl } from "./constants";
 
 function StatusMessageManager() {
-	const messageTypes = {
-		management: "Management",
-		dining: "Dining Services",
-		ops: "Operations",
-		plumbing: "Plumbing",
-		pool: "Pool",
-	};
-
 	const [statuses, setStatuses] = useState([]);
 	const [loading, setLoading] = useState(false);
 
@@ -43,16 +35,9 @@ function StatusMessageManager() {
 	return (
 		<Fragment>
 			<div id="post-status">
-				<PostForm
-					messageTypes={messageTypes}
-					addStatusMessage={addStatusMessage}
-				/>
+				<PostForm addStatusMessage={addStatusMessage} />
 			</div>
-			<StatusMessageList
-				messageTypes={messageTypes}
-				statuses={statuses}
-				loading={loading}
-			/>
+			<StatusMessageList statuses={statuses} loading={loading} />
 		</Fragment>
 	);
 }

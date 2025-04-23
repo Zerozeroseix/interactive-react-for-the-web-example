@@ -1,6 +1,7 @@
 import React from "react";
 import { Loading } from "./Loading";
 import { StatusMessage } from "./StatusMessage";
+import { messageTypes } from "./constants";
 
 export function StatusMessageList(props) {
 	let displayedStatuses;
@@ -13,7 +14,7 @@ export function StatusMessageList(props) {
 				<li key={status.id} className={status.type}>
 					<StatusMessage
 						msg={status.msg}
-						type={props.messageTypes[status.type]}
+						type={messageTypes[status.type]}
 						time={status.time}
 					/>
 				</li>

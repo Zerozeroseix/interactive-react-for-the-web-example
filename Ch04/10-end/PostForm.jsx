@@ -1,17 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import date from "date-and-time";
-import { apiUrl } from "./constants";
+import { apiUrl, messageTypes } from "./constants";
 
 export function PostForm(props) {
-	const typeOptions = Object.keys(props.messageTypes).map(function (key) {
-		if (Object.hasOwn(props.messageTypes, key)) {
-			return (
-				<option key={key} value={key}>
-					{props.messageTypes[key]}
-				</option>
-			);
-		}
+	const typeOptions = Object.keys(messageTypes).map(function (key) {
+		return (
+			<option key={key} value={key}>
+				{messageTypes[key]}
+			</option>
+		);
 	});
 
 	// so we don't have to type this over and over
