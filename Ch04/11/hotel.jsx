@@ -14,7 +14,7 @@ function StatusMessageManager() {
 		const abortController = new AbortController();
 
 		// Fetch the status messages from the API
-		fetch(`${CONFIG.apiUrl}/messages?delay=5000`, {
+		fetch(`${apiUrl}/messages?delay=5000`, {
 			signal: abortController.signal,
 		})
 			.then((response) => response.json())
@@ -26,8 +26,8 @@ function StatusMessageManager() {
 				if (error.name !== "AbortError") {
 					// AbortErrors are expected during cleanup
 					console.error("Error fetching status messages:", error);
+					setLoading(false);
 				}
-				setLoading(false);
 			});
 
 		return () => {

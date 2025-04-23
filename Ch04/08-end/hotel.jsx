@@ -164,8 +164,8 @@ function StatusMessageManager() {
 				if (error.name !== "AbortError") {
 					// AbortErrors are expected during cleanup
 					console.error("Error fetching status messages:", error);
+					setLoading(false);
 				}
-				setLoading(false);
 			});
 
 		return () => {
