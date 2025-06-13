@@ -2,6 +2,12 @@
 
 This is the repository for the LinkedIn Learning course `Interactive React for the Web`. The full course is available from [LinkedIn Learning][lil-course-url].
 
+![lil-thumbnail-url]
+
+## Course Description
+
+React has been a cornerstone of the web for many years, and remains one of the most-used JavaScript frameworks. In this course, learn how to think about applications using components, the fundamental building block of a React project. Over several small projects, instructor Joe Chellman shows you how to manage the interactive data in each one, and use code to declare how pieces should change in response to one another.  Learning React opens doors to many opportunities, whether one ends up actually using it on projects themselves or not.
+
 _See the readme file in the main branch for updated instructions and information._
 
 ## Instructions
@@ -41,4 +47,11 @@ Then you'll be able to see it running in a web browser:
 open http://localhost:4000
 ```
 
-[lil-course-url]: https://www.linkedin.com/learning/
+## Instructor
+
+Joe Chellman
+
+Web Designer, Author, Trainer
+
+[lil-course-url]: https://www.linkedin.com/learning/interactive-react-for-the-web
+[lil-thumbnail-url]: https://media.licdn.com/dms/image/v2/D560DAQF7oq6NTpIGIA/learning-public-crop_675_1200/B56ZdfdiCEHoAY-/0/1749653267298?e=2147483647&v=beta&t=YIJpva1QZtpLc0JriwWAV0wEw8HIbdev-ItxMSFLeSM
